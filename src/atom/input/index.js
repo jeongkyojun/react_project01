@@ -1,9 +1,9 @@
 import React from "react";
-import { StyledInput } from "./style,js";
+import { StyledInput } from "./style";
 
-const Input = ({value,onChangeHandler,...rest})=>{
+const Input = ({value,onChangeHandler,onKeyDownHandler, ...rest})=>{
     return(
-        <StyledInput value={value} onChange={onChangeHandler} {...rest}/>
+        <StyledInput value={value} onChange={onChangeHandler} onKeyDown={onKeyDownHandler} {...rest}/>
     );
 }
 

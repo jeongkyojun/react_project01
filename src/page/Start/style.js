@@ -3,6 +3,15 @@ import { styled } from "styled-components";
 export const StyledStart = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+`
+
+export const StyledButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `
 export const StyledStartHeader = styled.div`
     display: flex;
