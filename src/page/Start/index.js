@@ -4,6 +4,8 @@ import { useRecoilState } from "recoil";
 import { nameState } from "../../data/values";
 import Button from "../../atom/Button";
 import Input from "../../atom/Input";
+import TodoList from "../../molecule/todoList";
+import Calandar from "../../organ/Calandar";
 const Start = ()=>{
     const [name, setName] = useRecoilState(nameState);
     return(
@@ -13,6 +15,8 @@ const Start = ()=>{
                 <Input></Input>
                 <Button></Button>
             </StyledStartBody>
+            <TodoList></TodoList>
+            <Calandar></Calandar>
         </StyledStart>
     );
 }
