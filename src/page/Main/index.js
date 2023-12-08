@@ -32,6 +32,8 @@ const Main = ()=>{
         console.log(nameChk.text);
     }
     
+    
+
     return(
         <StyledMain>
             <StyledInputBlock>
