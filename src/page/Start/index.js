@@ -6,11 +6,43 @@ import Button from "../../atom/Button";
 import Input from "../../atom/Input";
 import TodoList from "../../molecule/todoList";
 import Calandar from "../../organ/Calandar";
+import Navbar from "../../organ/Navbar";
+import { useNavigate } from "react-router-dom";
 const Start = ()=>{
-    const [name, setName] = useRecoilState(nameState);
+    const [name] = useRecoilState(nameState);
+    const navigate = useNavigate();
+
+    const navigatePage = ()=>{
+        //navigate(link);
+    }
+
+    const btnList = [
+        {
+            children: '홈',
+            onClickHandler: navigatePage,
+            borderColor: 'white',
+        },
+        {
+            children: '캘린더',
+            onClickHandler: navigatePage,
+            borderColor: 'white',
+        },
+        {
+            children: '체크리스트',
+            onClickHandler: navigatePage,
+            borderColor: 'white',
+        },
+        {
+            children: '세팅',
+            onClickHandler: navigatePage,
+            borderColor: 'white',
+        },
+    ];
+
     return(
         <StyledStart>
             <h1>hello, {name}</h1>
+            <Navbar btnList={btnList} isRow></Navbar>
             <StyledStartBody>
                 <Input></Input>
                 <Button></Button>
