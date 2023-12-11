@@ -1,9 +1,9 @@
 import React from "react";
 import { StyledCalandarBoard } from "./style";
 
-const CalandarBoard = ({date,isHoliday})=>{
+const CalandarBoard = ({date,isHoliday,...rest})=>{
     return(
-        <StyledCalandarBoard>
+        <StyledCalandarBoard {...rest}>
             {date}
         </StyledCalandarBoard>
     );

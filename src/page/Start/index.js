@@ -8,6 +8,7 @@ import TodoList from "../../molecule/todoList";
 import Calandar from "../../organ/Calandar";
 import Navbar from "../../organ/Navbar";
 import { useNavigate } from "react-router-dom";
+import CalandarPage from "../CalandarPage";
 const Start = ()=>{
     const [name] = useRecoilState(nameState);
     const navigate = useNavigate();
@@ -48,7 +49,7 @@ const Start = ()=>{
                 <Button></Button>
             </StyledStartBody>
             <TodoList></TodoList>
-            <Calandar></Calandar>
+            <CalandarPage></CalandarPage>
         </StyledStart>
     );
 }

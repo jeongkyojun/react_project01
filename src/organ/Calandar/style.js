@@ -5,5 +5,6 @@ export const StyledCalandar = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 35rem;
+    height: 35rem;
     border: 1px solid white;
 `

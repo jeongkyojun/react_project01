@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { StyledCalandarPage } from "./style";
+import { DATE, DAY, LAST_DAY, FIRST_DAY, MONTH, YEAR } from "../../data/calandar";
+import Calandar from "../../organ/Calandar";
 
 const CalanadarPage = ()=>{
-    const YEAR = useState(Date.prototype.getFullYear);
-    const MONTH = useState(Date.prototype.getMonth()+1);
-    const DATE = useState(Date.prototype.getDate);
-    const DAY = useState(Date.prototype.getDay);
-
+    const [first, setFirst] = useState(FIRST_DAY);
+    const [last, setLast] = useState(LAST_DAY);
     return(
         <StyledCalandarPage>
-            CALANDAR {YEAR+' - '+MONTH+' - '+DATE+' :: '+DAY}
+            CALANDAR {YEAR+' - '+MONTH+' - '+DATE+' :: '+DAY+' / '+first+' & '+last}
+            <Calandar></Calandar>
         </StyledCalandarPage>
     );
 }

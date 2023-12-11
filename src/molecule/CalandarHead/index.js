@@ -2,12 +2,12 @@ import React from "react";
 import { StyledCalandarHead } from "./style";
 import Button from "../../atom/Button";
 
-const CalandarHead = ({month})=>{
+const CalandarHead = ({year, month, subMonthHandler, addMonthHandler})=>{
     return(
         <StyledCalandarHead>
-            <Button>이전 달</Button>
-            {month}월
-            <Button>다음 달</Button>
+            <Button onClickHandler={subMonthHandler}>이전 달</Button>
+            {year}년 {month}월
+            <Button onClickHandler={addMonthHandler}>다음 달</Button>
         </StyledCalandarHead>
     )
 }
