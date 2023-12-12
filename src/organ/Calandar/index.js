@@ -7,14 +7,10 @@ import { DATE, DAY, FIRST_DAY, LAST_DAY, MONTH, MONTH_END, YEAR } from "../../da
 const Calandar = ()=>{
     const [year, setYear] = useState(YEAR);
     const [month,setMonth] = useState(MONTH+1);
-    const date = useState(DATE);
-    const day = useState(DAY);
+    const [date,setDate] = useState(DATE);
     const [firstDay,setFirstDay] = useState(FIRST_DAY);
     const [lastDay,setLastDay] = useState(LAST_DAY);
-
-    useEffect(()=>{
-        console.log(year+'-'+month+' :: '+firstDay+" : "+lastDay);
-    },[firstDay,lastDay]);
+    const nowDate = DATE;
 
     const addYear = ()=>{
         setYear((prev)=>{ return (prev+1);})};
@@ -24,20 +20,23 @@ const Calandar = ()=>{
         return true;
     }
     const addMonth = ()=>{
+        let nowMonth = month;
         setMonth((prev)=>{
             if(prev==12){
                 addYear();
+                nowMonth = 1;
                 return 1;
             }
+            nowMonth+=1;
             return prev+1;
         });     
-        const nextmonth = (month+1)%12;
         setFirstDay((lastDay+1)%7);
         setLastDay((prev)=>{
-            return (prev+MONTH_END[year%4][nextmonth-1])%7;
+            return (prev+MONTH_END[year%4][nowMonth-1])%7;
         }) 
     }
     const subMonth = ()=>{
+        const nowMonth = month;
         setMonth((prev)=>{
             if(prev==1){
                 if(subYear()){
@@ -51,16 +50,15 @@ const Calandar = ()=>{
             }
             setLastDay((firstDay+6)%7);
             setFirstDay((prev)=>{
-                return((prev+35-MONTH_END[year%4][month-2])%7);
+                return((prev+35-MONTH_END[year%4][nowMonth-2])%7);
             })
             return prev-1;
         });
     }
-  
     return(
         <StyledCalandar>
             <CalandarHead year={year} month={month} addMonthHandler={addMonth} subMonthHandler={subMonth}></CalandarHead>
-            <CalandarBody month={month} date={date} day={day} first={firstDay} end={lastDay} width={35} height={30}></CalandarBody>
+            <CalandarBody year ={year} month={month} date={nowDate} first={firstDay} end={lastDay} width={35} height={30}></CalandarBody>
         </StyledCalandar>
     );
 }
