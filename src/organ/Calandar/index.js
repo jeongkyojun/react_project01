@@ -20,40 +20,36 @@ const Calandar = ()=>{
         return true;
     }
     const addMonth = ()=>{
-        let nowMonth = month;
-        setMonth((prev)=>{
-            if(prev==12){
-                addYear();
-                nowMonth = 1;
-                return 1;
-            }
-            nowMonth+=1;
-            return prev+1;
-        });     
-        setFirstDay((lastDay+1)%7);
-        setLastDay((prev)=>{
-            return (prev+MONTH_END[year%4][nowMonth-1])%7;
-        }) 
+        let nextMonth = month;
+        let nextYear = year;
+        nextMonth+=1;
+        if(nextMonth>12)
+        {
+            nextYear+=1;
+            addYear();
+            nextMonth%=12;
+        }    
+        setMonth(nextMonth);     
+        const nextLast = (lastDay+MONTH_END[nextYear%4][nextMonth-1])%7
+        setFirstDay((lastDay+1)%7); // 첫날 = 마지막날 + 1 한 뒤, 7인경우 0으로
+        setLastDay(nextLast); 
     }
     const subMonth = ()=>{
-        const nowMonth = month;
-        setMonth((prev)=>{
-            if(prev==1){
-                if(subYear()){
-                    setLastDay((firstDay+6)%7);
-                    setFirstDay((prev)=>{
-                        return((prev+35-MONTH_END[(year-1)%4][11])%7);
-                    })
-                    return 12;
-                }    
-                return 1; // 변화 없음
+        let nextMonth = month;
+        let nextYear = year;
+        let nextFirst = firstDay;
+        nextMonth = month-1
+        if(nextMonth<1){
+            nextMonth = 1;
+            if(subYear()){
+                nextYear-=1;
+                nextMonth = 12;
             }
-            setLastDay((firstDay+6)%7);
-            setFirstDay((prev)=>{
-                return((prev+35-MONTH_END[year%4][nowMonth-2])%7);
-            })
-            return prev-1;
-        });
+        }
+        nextFirst = (firstDay+35-MONTH_END[nextYear%4][nextMonth-1])%7;
+        setMonth(nextMonth);
+        setLastDay((firstDay+6)%7);
+        setFirstDay(nextFirst); // 첫날 = 마지막날 + 1 한 뒤, 7인경우 0으로
     }
     return(
         <StyledCalandar>

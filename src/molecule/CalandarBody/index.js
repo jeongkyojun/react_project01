@@ -23,20 +23,19 @@ const CalandarBody = ({year,month, date,first,end, width, height, ...rest})=>{
         if(month!=1)
             BEFORE_MONTH = MONTH_END[year%4][month-2];
         for(let i=0;i<7;i++){
+            let isMonth = true;
             let date = 7*week+i+1-day;
-            if(date<=0)
+            if(date<=0){
+                // 이전달
+                isMonth = false;
                 date+=BEFORE_MONTH;
-            if(week>2&&date>MONTH_END[year%4][month-1])
+            }
+            if(week>2&&date>MONTH_END[year%4][month-1]){
+                // 다음달
+                isMonth = false;
                 date-=MONTH_END[year%4][month-1];
-            /*
-            1   2   3   4   5   6   7
-            8   9   10  11  12  13  14
-            15  16  17  18  19  20  21 
-            22  23  24  25  26  27  28 
-            29  30  31  32  33  34  35 
-            36  37  38  39  40 
-            */
-            weekCalandar.push(<CalandarBoard date={date} width={width/7} height={(height/6)-1} day={i}/>)
+            }
+            weekCalandar.push(<CalandarBoard date={date} width={width/7} height={(height/6)-0.5} day={i} isMonth={isMonth}/>)
         }
         return(
             <StyledWeekRender>
@@ -60,7 +59,6 @@ const CalandarBody = ({year,month, date,first,end, width, height, ...rest})=>{
             {
                 calandarRendering()
             }
-            {year+' - '+month+' - '+date+'('+MONTH_END[year%4][month-1]+')'}
         </StyledCalandarBody>
     )
 }
