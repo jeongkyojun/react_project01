@@ -12,7 +12,23 @@ export const nameState = atom({
 
 export const listState = atom({
     key: 'listState',
-    default: [],
+    default: [
+        {
+            text: '코딩하기',
+            isEnd: false,
+        },{
+            text: '아침',
+            isEnd: false,
+        },{
+            text: '점심',
+            isEnd: false,
+        },{
+            text: '저녁',
+            isEnd: false,
+        },{
+            text: '운동하기',
+            isEnd: false,
+        }
+    ],
     effects_UNSTABLE: [persistAtom],
 })
-

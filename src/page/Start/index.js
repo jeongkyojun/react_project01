@@ -13,29 +13,37 @@ const Start = ()=>{
     const [name] = useRecoilState(nameState);
     const navigate = useNavigate();
 
-    const navigatePage = ()=>{
-        //navigate(link);
+    const navigateCalandar = ()=>{
+        navigate('/calandar');
     }
-
+    const navigateHome = ()=>{
+        navigate('/start');
+    }
+    const navigateSetting = ()=>{
+        navigate('/calandar');
+    }
+    const navigateCheckList = ()=>{
+        navigate('/calandar');
+    }
     const btnList = [
         {
             children: '홈',
-            onClickHandler: navigatePage,
+            onClickHandler: navigateHome,
             borderColor: 'white',
         },
         {
             children: '캘린더',
-            onClickHandler: navigatePage,
+            onClickHandler: navigateCalandar,
             borderColor: 'white',
         },
         {
             children: '체크리스트',
-            onClickHandler: navigatePage,
+            onClickHandler: navigateCheckList,
             borderColor: 'white',
         },
         {
             children: '세팅',
-            onClickHandler: navigatePage,
+            onClickHandler: navigateSetting,
             borderColor: 'white',
         },
     ];
@@ -48,7 +56,6 @@ const Start = ()=>{
                 <Input></Input>
                 <Button></Button>
             </StyledStartBody>
-            <TodoList></TodoList>
             <CalandarPage></CalandarPage>
         </StyledStart>
     );

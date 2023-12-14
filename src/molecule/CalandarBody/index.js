@@ -3,7 +3,19 @@ import { StyledCalandarBody, StyledWeekHead, StyledWeekHeadBoard, StyledWeekRend
 import CalandarBoard from "../CalandarBoard";
 import { DAY_NAME, MONTH, MONTH_END } from "../../data/calandar";
 
-const CalandarBody = ({year,month, date,first,end, width, height, ...rest})=>{
+const CalandarBody = ({
+    year,
+    month, 
+    date, 
+    first,
+    end, 
+    width, 
+    height,
+    nowYear,
+    nowMonth,
+    nowDate, 
+    onClickHandler,
+    ...rest})=>{
 
     let BEFORE_MONTH;
     const calandarWeekHeadRendering = ()=>{
@@ -24,6 +36,7 @@ const CalandarBody = ({year,month, date,first,end, width, height, ...rest})=>{
             BEFORE_MONTH = MONTH_END[year%4][month-2];
         for(let i=0;i<7;i++){
             let isMonth = true;
+            let isToday = false;
             let date = 7*week+i+1-day;
             if(date<=0){
                 // 이전달
@@ -35,7 +48,10 @@ const CalandarBody = ({year,month, date,first,end, width, height, ...rest})=>{
                 isMonth = false;
                 date-=MONTH_END[year%4][month-1];
             }
-            weekCalandar.push(<CalandarBoard date={date} width={width/7} height={(height/6)-0.5} day={i} isMonth={isMonth}/>)
+            if(month===(nowMonth+1) && date===nowDate && year===nowYear){
+                isToday = true;
+            }
+            weekCalandar.push(<CalandarBoard date={date} width={width/7} height={(height/6)-0.5} day={i} isMonth={isMonth} isToday={isToday} name={i} onClickHandler={onClickHandler}/>)
         }
         return(
             <StyledWeekRender>
