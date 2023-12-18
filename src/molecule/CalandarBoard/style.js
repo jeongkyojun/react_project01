@@ -38,5 +38,4 @@ export const StyledCalandarBoard = styled.div`
             background-color: #333333;
         `
     }
-    
 `

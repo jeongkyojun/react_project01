@@ -1,10 +1,11 @@
 import React from "react";
 import { StyledInput, StyledLabel, StyledText } from "./style";
+import Input from "../Input";
 
-const CheckBox = ({text})=>{
+const CheckBox = ({text,width,onChangeHandler})=>{
     return(
         <StyledLabel htmlFor={text}>
-            <StyledInput type="checkbox" id={text} name={text}></StyledInput>
+            <Input width={width} type="checkbox" id={text} name={text} onChangeHandler={onChangeHandler}></Input>
             <StyledText>{text}</StyledText>
         </StyledLabel>
     );

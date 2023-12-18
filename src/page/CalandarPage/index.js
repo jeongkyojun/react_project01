@@ -3,6 +3,8 @@ import { StyledCalandarPage } from "./style";
 import { DATE, DAY, LAST_DAY, FIRST_DAY, MONTH, YEAR, MONTH_END } from "../../data/calandar";
 import Calandar from "../../organ/Calandar";
 import TodoList from "../../molecule/todoList";
+import { useRecoilState } from "recoil";
+import { listState } from "../../data/values";
 
 const CalanadarPage = ()=>{
     const [year, setYear] = useState(YEAR);
@@ -12,6 +14,7 @@ const CalanadarPage = ()=>{
     const [date,setDate] = useState(DATE);
     const [firstDay,setFirstDay] = useState(FIRST_DAY);
     const [lastDay,setLastDay] = useState(LAST_DAY);
+    const [list] = useRecoilState(listState);
 
     const addYear = ()=>{
         setYear((prev)=>{ return (prev+1);})};
@@ -53,11 +56,15 @@ const CalanadarPage = ()=>{
         setFirstDay(nextFirst); // 첫날 = 마지막날 + 1 한 뒤, 7인경우 0으로
     }
     const clickDate = (e)=>{
-        console.log(e.target.id);
+        if(e.target.id<1) return;
         setDate(e.target.id);
         setSelYear(year);
         setSelMonth(month);
     }
+    const onCheckBoxHandler = (e)=>{
+        console.log(e.target);
+    }
+
     return(
         <StyledCalandarPage>
             <Calandar 
@@ -76,11 +83,15 @@ const CalanadarPage = ()=>{
                 onClickHandler={clickDate}> 
             </Calandar>
             <TodoList 
+                lists={list}
                 year={selYear}
                 month={selMonth}
                 date={date}
                 width={30} 
-                height={35}></TodoList>
+                height={35}
+                checkBoxWidth={1}
+                onChangeHandler={onCheckBoxHandler}
+                ></TodoList>
         </StyledCalandarPage>
     );
 }

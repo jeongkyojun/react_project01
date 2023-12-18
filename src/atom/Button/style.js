@@ -1,8 +1,12 @@
 import { css, styled } from "styled-components";
 
+
+const DEFAULT_WIDTH = 10;
+const DEFAULT_HEIGHT = 2;
+
 export const StyledButton = styled.button`
-    width: ${({width})=>width||10}rem;
-    height: ${({height})=>height||2}rem;
+    width: ${({width})=>width||DEFAULT_WIDTH}rem;
+    height: ${({height})=>height||DEFAULT_HEIGHT}rem;
 
     ${({isText, textColor, backgroundColor, disabled})=>
         isText

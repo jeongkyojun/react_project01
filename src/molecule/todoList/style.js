@@ -13,5 +13,6 @@ export const StyledTodoListHead = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 5rem;
+    border: 1px solid white;
 `
