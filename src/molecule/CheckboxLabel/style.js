@@ -1,0 +1,13 @@
+import styled from "styled-components";
+
+export const StyledCheckboxLabel = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const StyledLabelWrap = styled.div`
+  margin-bottom: 0.1rem;
+  margin-left: 0.2rem;
+`;
+
+export const StyledCheckboxWrap = styled.div``;

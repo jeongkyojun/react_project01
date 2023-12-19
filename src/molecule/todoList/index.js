@@ -1,6 +1,7 @@
 import React from "react";
 import CheckBox from "../../atom/Checkbox";
 import { StyledTodoList, StyledTodoListHead } from "./style";
+import CheckboxLabel from "../CheckboxLabel";
 
 const TodoList = ({lists,year,month,date,width,height,checkBoxWidth,onChangeHandler})=>{
     return (
@@ -11,7 +12,7 @@ const TodoList = ({lists,year,month,date,width,height,checkBoxWidth,onChangeHand
             {
                 lists?.map(({text,isEnd})=>{
                     return(
-                        <CheckBox width={checkBoxWidth} text={text} isEnd={isEnd} onChangeHandler={onChangeHandler}></CheckBox>
+                        <CheckboxLabel width={checkBoxWidth} text={text} isEnd={isEnd} onChangeHandler={onChangeHandler}></CheckboxLabel>
                     )
                 })
             }
