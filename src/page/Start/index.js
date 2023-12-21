@@ -56,7 +56,6 @@ const Start = ()=>{
                 <Input></Input>
                 <Button></Button>
             </StyledStartBody>
-            <CalandarPage></CalandarPage>
         </StyledStart>
     );
 }

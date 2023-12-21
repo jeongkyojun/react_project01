@@ -12,7 +12,7 @@ const TodoList = ({lists,year,month,date,width,height,checkBoxWidth,onChangeHand
             {
                 lists?.map(({text,isEnd})=>{
                     return(
-                        <CheckboxLabel width={checkBoxWidth} text={text} isEnd={isEnd} onChangeHandler={onChangeHandler}></CheckboxLabel>
+                        <CheckboxLabel width={checkBoxWidth} labelValue={text} isEnd={isEnd} onChangeHandler={onChangeHandler}></CheckboxLabel>
                     )
                 })
             }

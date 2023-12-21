@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const StyledCheckboxLabel = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 export const StyledLabelWrap = styled.div`
-  margin-bottom: 0.1rem;
+  margin-top: 0.5rem;
   margin-left: 0.2rem;
 `;
 

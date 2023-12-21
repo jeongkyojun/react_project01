@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { StyledCalandarPage } from "./style";
+import { StyledCalandarPage, StyledCalandarWrap } from "./style";
 import { DATE, DAY, LAST_DAY, FIRST_DAY, MONTH, YEAR, MONTH_END } from "../../data/calandar";
 import Calandar from "../../organ/Calandar";
 import TodoList from "../../molecule/todoList";
 import { useRecoilState } from "recoil";
-import { listState } from "../../data/values";
+import { listState, nameState } from "../../data/values";
 
 const CalanadarPage = ()=>{
+    const [name, setName] = useRecoilState(nameState);
+
     const [year, setYear] = useState(YEAR);
     const [selYear,setSelYear] = useState(YEAR);
     const [month,setMonth] = useState(MONTH+1);
@@ -67,31 +69,34 @@ const CalanadarPage = ()=>{
 
     return(
         <StyledCalandarPage>
-            <Calandar 
-                year ={year} 
-                month={month} 
-                date={date} 
-                firstDay={firstDay} 
-                lastDay={lastDay} 
-                width={35} 
-                height={30} 
-                nowYear={YEAR}
-                nowMonth={MONTH}
-                nowDate={DATE}
-                addMonthHandler={addMonth} 
-                subMonthHandler={subMonth}
-                onClickHandler={clickDate}> 
-            </Calandar>
-            <TodoList 
-                lists={list}
-                year={selYear}
-                month={selMonth}
-                date={date}
-                width={30} 
-                height={35}
-                checkBoxWidth={1}
-                onChangeHandler={onCheckBoxHandler}
-                ></TodoList>
+            <h1>hello, {name}</h1>
+            <StyledCalandarWrap>
+                <Calandar 
+                    year ={year} 
+                    month={month} 
+                    date={date} 
+                    firstDay={firstDay} 
+                    lastDay={lastDay} 
+                    width={35} 
+                    height={30} 
+                    nowYear={YEAR}
+                    nowMonth={MONTH}
+                    nowDate={DATE}
+                    addMonthHandler={addMonth} 
+                    subMonthHandler={subMonth}
+                    onClickHandler={clickDate}> 
+                </Calandar>
+                <TodoList 
+                    lists={list}
+                    year={selYear}
+                    month={selMonth}
+                    date={date}
+                    width={30} 
+                    height={35}
+                    checkBoxWidth={1}
+                    onChangeHandler={onCheckBoxHandler}
+                    ></TodoList>
+            </StyledCalandarWrap>
         </StyledCalandarPage>
     );
 }
