@@ -12,6 +12,7 @@ import Main from './page/Main';
 import Start from './page/Start';
 import CalandarPage from './page/CalandarPage';
 import Navbar from './organ/Navbar';
+import BoardPage from './page/BoardPage';
 
 function App() {
 
@@ -23,8 +24,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Main></Main>}></Route>
-              <Route path="/start" element={<Start></Start>}></Route>
-              <Route path="/calandar" element={<CalandarPage></CalandarPage>}></Route>
+            <Route path="/start" element={<Start></Start>}></Route>
+            <Route path="/calandar" element={<CalandarPage></CalandarPage>}></Route>
+            <Route path="/board" element={<BoardPage></BoardPage>}></Route>
           </Routes>
         </BrowserRouter>
       </RecoilRoot>

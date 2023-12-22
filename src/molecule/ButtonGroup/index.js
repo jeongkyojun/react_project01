@@ -8,7 +8,9 @@ const ButtonGroup = ({btnList, isRow})=>{
             {
                 btnList?.map(({onClickHandler,children, ...rest},idx)=>{
                     return(
-                        <Button key={children+'#'+idx} onClickHandler={onClickHandler} {...rest}>{children}</Button>
+                        <Button key={children+'#'+idx} onClickHandler={onClickHandler} {...rest} id={idx}>
+                            {children}
+                        </Button>
                     );
                 })
             }

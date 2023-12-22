@@ -5,6 +5,7 @@ import Calandar from "../../organ/Calandar";
 import TodoList from "../../molecule/todoList";
 import { useRecoilState } from "recoil";
 import { listState, nameState } from "../../data/values";
+import Navbar from "../../organ/Navbar";
 
 const CalanadarPage = ()=>{
     const [name, setName] = useRecoilState(nameState);
@@ -70,6 +71,7 @@ const CalanadarPage = ()=>{
     return(
         <StyledCalandarPage>
             <h1>hello, {name}</h1>
+            <Navbar isRow></Navbar>
             <StyledCalandarWrap>
                 <Calandar 
                     year ={year} 

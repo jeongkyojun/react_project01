@@ -1,11 +1,17 @@
 import React from "react";
 import ButtonGroup from "../../molecule/ButtonGroup";
 import { StyledNavbar } from "./style";
+import { useNavigate } from "react-router-dom";
+import navigator from "../../data/navigation";
+import { getBtnInfos } from "./getButtonInfo";
 
-const Navbar = ({btnList,isRow})=>{
+const Navbar = ({isRow})=>{
+
+    const navigate = useNavigate();
+
     return(
         <StyledNavbar>
-            <ButtonGroup btnList = {btnList} isRow={isRow}></ButtonGroup>
+            <ButtonGroup btnList = {getBtnInfos(navigate)} isRow={isRow}></ButtonGroup>
         </StyledNavbar>
     )
 }

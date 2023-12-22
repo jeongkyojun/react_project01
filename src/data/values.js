@@ -32,3 +32,14 @@ export const listState = atom({
     ],
     effects_UNSTABLE: [persistAtom],
 })
+
+export const boardState = atom({
+    key: 'boardState',
+    default: [
+        {
+            num: 0,
+            name: '게시판 이용 수칙',
+            createDate: Date.now(),
+        }
+    ]
+})
