@@ -1,5 +1,14 @@
 import React from "react"
-import { StyledBoardCreateDateWrapper, StyledBoardList, StyledBoardListWrapper, StyledBoardMenu, StyledBoardNameWrapper, StyledBoardNumWrapper } from "./style";
+import { 
+    StyledBoardCreateDateWrapper, 
+    StyledBoardCreatorWrapper, 
+    StyledBoardGoodWrapper, 
+    StyledBoardList, 
+    StyledBoardListWrapper, 
+    StyledBoardMenu, 
+    StyledBoardNumWrapper,
+    StyledBoardTitleWrapper, 
+    StyledBoardViewWrapper} from "./style";
 import BoardBar from "../../molecule/BoardBar";
 
 const BoardList = ({list})=>{
@@ -8,14 +17,17 @@ const BoardList = ({list})=>{
         <StyledBoardList>
             <StyledBoardMenu>
                 <StyledBoardNumWrapper> 번호 </StyledBoardNumWrapper>
-                <StyledBoardNameWrapper> 제목 </StyledBoardNameWrapper>
-                <StyledBoardCreateDateWrapper> 생성일 </StyledBoardCreateDateWrapper>
+                <StyledBoardTitleWrapper> 제목 </StyledBoardTitleWrapper>
+                <StyledBoardCreatorWrapper> 작성자 </StyledBoardCreatorWrapper>
+                <StyledBoardCreateDateWrapper> 작성일 </StyledBoardCreateDateWrapper>
+                <StyledBoardViewWrapper> 조회수 </StyledBoardViewWrapper>
+                <StyledBoardGoodWrapper>추천</StyledBoardGoodWrapper>
             </StyledBoardMenu>
             <StyledBoardListWrapper>
                 {
                     list.map(({...rest},index)=>{
                         return (
-                            <BoardBar num={index} {...rest}></BoardBar>
+                            <BoardBar {...rest}></BoardBar>
                         );
                     })
                 }

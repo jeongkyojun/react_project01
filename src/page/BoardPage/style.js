@@ -14,7 +14,7 @@ export const StyledBoardHead = styled.div`
 
 export const StyledBoardBody = styled.div`
     display: flex;
-    width: 50rem;
+    width: 70rem;
     height: 50rem;
     border: 1px solid white;
 `

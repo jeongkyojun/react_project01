@@ -38,8 +38,11 @@ export const boardState = atom({
     default: [
         {
             num: 0,
-            name: '게시판 이용 수칙',
+            title: '게시판 이용 수칙',
             createDate: Date.now(),
+            creator: '관리자',
+            view:15,
+            good: 0,
         }
     ]
 })
