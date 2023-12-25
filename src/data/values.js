@@ -39,10 +39,26 @@ export const boardState = atom({
         {
             num: 0,
             title: '게시판 이용 수칙',
-            createDate: Date.now(),
+            createDate: new Date(2023,11,25,4,40,11),
             creator: '관리자',
             view:15,
             good: 0,
-        }
+        },
+        {
+            num: 1,
+            title: '공지사항',
+            createDate: new Date(2023,11,25,4,38,12),
+            creator: '관리자',
+            view:15,
+            good: 0,
+        },
+        {
+            num: 2,
+            title: '안녕하세요',
+            createDate: new Date(2023,11,25,4,35,0),
+            creator: '관리자',
+            view:15,
+            good: 0,
+        },
     ]
 })

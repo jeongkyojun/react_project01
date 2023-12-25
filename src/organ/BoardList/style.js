@@ -10,7 +10,7 @@ export const StyledBoardList = styled.div`
 export const StyledBoardMenu = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
     width: 100%;
     height: 2rem;
     color: white;
@@ -26,7 +26,8 @@ export const StyledBoardListWrapper = styled.div`
 export const StyledBoardNumWrapper = styled.div`
     display: flex;
     align-items: center;
-    width : 3rem;
+    justify-content: center;
+    width: ${({width})=>width||'5rem'};
     height: 100%; 
     color: white;
 `
@@ -34,7 +35,7 @@ export const StyledBoardNumWrapper = styled.div`
 export const StyledBoardTitleWrapper = styled.div`
     display: flex;
     align-items: center;
-    width: 30rem;
+    width: ${({width})=>width||'30rem'};
     height: 100%; 
     color: white;
 `
@@ -42,7 +43,8 @@ export const StyledBoardTitleWrapper = styled.div`
 export const StyledBoardCreatorWrapper = styled.div`
     display: flex;
     align-items: center;
-    width: 3rem;
+    justify-content: center;
+    width: ${({width})=>width||'5rem'};
     height: 100%;
     color: white;
 `
@@ -50,7 +52,8 @@ export const StyledBoardCreatorWrapper = styled.div`
 export const StyledBoardCreateDateWrapper = styled.div`
     display: flex;
     align-items: center;
-    width: 3rem;
+    justify-content: center;
+    width: ${({width})=>width||'5rem'};
     height: 100%; 
     color: white;
 `
@@ -58,7 +61,8 @@ export const StyledBoardCreateDateWrapper = styled.div`
 export const StyledBoardViewWrapper = styled.div`
     display: flex;
     align-items: center;
-    width: 3rem;
+    justify-content: center;
+    width: ${({width})=>width||'5rem'};
     height: 100%;
     color: white;
 `
@@ -66,7 +70,8 @@ export const StyledBoardViewWrapper = styled.div`
 export const StyledBoardGoodWrapper = styled.div`
     display: flex;
     align-items: center;
-    width: 3rem;
+    justify-content: center;
+    width:${({width})=>width||'5rem'};
     height: 100%;
     color: white;
 `

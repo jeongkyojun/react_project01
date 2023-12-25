@@ -11,23 +11,32 @@ import {
     StyledBoardViewWrapper} from "./style";
 import BoardBar from "../../molecule/BoardBar";
 
-const BoardList = ({list})=>{
-    const DEFAULT_WIDTH = [20,60,20];
+const BoardList = ({list,...rest})=>{
+    const DEFAULT_WIDTH = ['5rem','30rem','5rem','5rem','5rem','5rem'];
     return(
         <StyledBoardList>
             <StyledBoardMenu>
-                <StyledBoardNumWrapper> 번호 </StyledBoardNumWrapper>
-                <StyledBoardTitleWrapper> 제목 </StyledBoardTitleWrapper>
-                <StyledBoardCreatorWrapper> 작성자 </StyledBoardCreatorWrapper>
-                <StyledBoardCreateDateWrapper> 작성일 </StyledBoardCreateDateWrapper>
-                <StyledBoardViewWrapper> 조회수 </StyledBoardViewWrapper>
-                <StyledBoardGoodWrapper>추천</StyledBoardGoodWrapper>
+                <StyledBoardNumWrapper width={DEFAULT_WIDTH[0]}> 번호 </StyledBoardNumWrapper>
+                <StyledBoardTitleWrapper width={DEFAULT_WIDTH[1]} > 제목 </StyledBoardTitleWrapper>
+                <StyledBoardCreatorWrapper width={DEFAULT_WIDTH[2]}> 작성자 </StyledBoardCreatorWrapper>
+                <StyledBoardCreateDateWrapper width={DEFAULT_WIDTH[3]}> 작성일 </StyledBoardCreateDateWrapper>
+                <StyledBoardViewWrapper width={DEFAULT_WIDTH[4]}> 조회수 </StyledBoardViewWrapper>
+                <StyledBoardGoodWrapper width={DEFAULT_WIDTH[5]}> 추천 </StyledBoardGoodWrapper>
             </StyledBoardMenu>
             <StyledBoardListWrapper>
                 {
-                    list.map(({...rest},index)=>{
+                    list.map(({...listRest},index)=>{
                         return (
-                            <BoardBar {...rest}></BoardBar>
+                            <BoardBar 
+                            num={index}
+                            {...rest} 
+                            {...listRest} 
+                            numWidth={DEFAULT_WIDTH[0]}
+                            titleWidth={DEFAULT_WIDTH[1]}
+                            creatorWidth={DEFAULT_WIDTH[2]}
+                            dateWidth={DEFAULT_WIDTH[3]}
+                            viewWidth={DEFAULT_WIDTH[4]}
+                            goodWidth={DEFAULT_WIDTH[5]}></BoardBar>
                         );
                     })
                 }
