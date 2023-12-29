@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledBoardBar = styled.div`
     display: flex;
@@ -9,12 +9,21 @@ export const StyledBoardBar = styled.div`
     border: 1px solid green;
     color: white;
 
-    @media(hover: hover) and (pointer: fine) {
-        &:hover {
-        filter: brightness(80%);
-        transition: all 0.1s;
-        box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
-        }
+    ${({isEmpty})=>
+    isEmpty?  
+        css`
+            background-color: rgba(30,30,30,0.8);
+        `
+        :
+        css`
+            @media(hover: hover) and (pointer: fine) {
+                &:hover {
+                filter: brightness(80%);
+                transition: all 0.1s;
+                box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+                }
+            }
+        `
     }
 `
 
@@ -74,4 +83,11 @@ export const StyledBoardGoodWrapper = styled.div`
     width : ${({width})=>width||'5rem'};
     height: 100%;
     color: white;
+`
+
+export const StyledEmptyBoardWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 `

@@ -38,6 +38,10 @@ const CalandarBody = ({
             let isMonth = true;
             let isToday = false;
             let date = 7*week+i+1-day;
+            
+            if(month===(nowMonth+1) && date===nowDate && year===nowYear){
+                isToday = true;
+            }
             if(date<=0){
                 // 이전달
                 isMonth = false;
@@ -48,9 +52,7 @@ const CalandarBody = ({
                 isMonth = false;
                 date-=MONTH_END[year%4][month-1];
             }
-            if(month===(nowMonth+1) && date===nowDate && year===nowYear){
-                isToday = true;
-            }
+            
             weekCalandar.push(<CalandarBoard date={date} width={width/7} height={(height/6)-0.5} day={i} isMonth={isMonth} isToday={isToday} name={i} onClickHandler={onClickHandler}/>)
         }
         return(

@@ -22,7 +22,7 @@ export const getBtnInfos = (navigate) =>{
             src: './board',
             alt: 'boardPage',
             onClickHandler: ()=>movePage('./board'),
-            children: '보드',
+            children: '게시판',
             borderColor: 'white',
         },
         {

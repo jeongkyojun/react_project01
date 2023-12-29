@@ -13,6 +13,26 @@ import BoardBar from "../../molecule/BoardBar";
 
 const BoardList = ({list,...rest})=>{
     const DEFAULT_WIDTH = ['5rem','30rem','5rem','5rem','5rem','5rem'];
+
+    const makeEtcBar = ()=>{
+        const value = [];
+        for(let i=list.length;i<rest.boardSize;i++){
+            value.push(
+                <BoardBar 
+                    isEmpty
+                    num={i}
+                    numWidth={DEFAULT_WIDTH[0]}
+                    titleWidth={DEFAULT_WIDTH[1]}
+                    creatorWidth={DEFAULT_WIDTH[2]}
+                    dateWidth={DEFAULT_WIDTH[3]}
+                    viewWidth={DEFAULT_WIDTH[4]}
+                    goodWidth={DEFAULT_WIDTH[5]}
+                    ></BoardBar>
+            );
+        }
+        return value;
+    }
+
     return(
         <StyledBoardList>
             <StyledBoardMenu>
@@ -39,6 +59,9 @@ const BoardList = ({list,...rest})=>{
                             goodWidth={DEFAULT_WIDTH[5]}></BoardBar>
                         );
                     })
+                }
+                {
+                    makeEtcBar()
                 }
             </StyledBoardListWrapper>
         </StyledBoardList>

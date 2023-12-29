@@ -7,10 +7,11 @@ import {
     StyledBoardMenu, 
     StyledBoardNumWrapper,
     StyledBoardTitleWrapper, 
-    StyledBoardViewWrapper 
+    StyledBoardViewWrapper, 
+    StyledEmptyBoardWrapper
 } from "./style";
 
-const BoardBar = ({num, title, creator,createDate,view,good, onClickHandler, ...rest})=>{
+const BoardBar = ({num, title, creator,createDate,view,good, onClickHandler,isEmpty, ...rest})=>{
 
     const makeCreateDate = (date) =>{
         const time = new Date();
@@ -26,15 +27,21 @@ const BoardBar = ({num, title, creator,createDate,view,good, onClickHandler, ...
     }
 
     return(
-        <StyledBoardBar onClick = {onClickHandler} id={num} {...rest} >
-            <StyledBoardMenu>
-                <StyledBoardNumWrapper width={rest.numWidth}> {num%100000} </StyledBoardNumWrapper>
-                <StyledBoardTitleWrapper width={rest.titleWidth} > {title} </StyledBoardTitleWrapper>
-                <StyledBoardCreatorWrapper width={rest.creatorWidth}> {creator} </StyledBoardCreatorWrapper>
-                <StyledBoardCreateDateWrapper width={rest.dateWidth}> {makeCreateDate(createDate)} </StyledBoardCreateDateWrapper>
-                <StyledBoardViewWrapper width={rest.viewWidth}> {view} </StyledBoardViewWrapper>
-                <StyledBoardGoodWrapper width={rest.goodWidth}> {good} </StyledBoardGoodWrapper>
-            </StyledBoardMenu>
+        <StyledBoardBar onClick = {onClickHandler} {...rest} isEmpty={isEmpty} >
+            {
+                isEmpty?
+                <StyledEmptyBoardWrapper> 게시글이 없습니다. </StyledEmptyBoardWrapper>
+                :
+                <StyledBoardMenu id={num}>
+                    <StyledBoardNumWrapper width={rest.numWidth}> {num%100000} </StyledBoardNumWrapper>
+                    <StyledBoardTitleWrapper width={rest.titleWidth} > {title} </StyledBoardTitleWrapper>
+                    <StyledBoardCreatorWrapper width={rest.creatorWidth}> {creator} </StyledBoardCreatorWrapper>
+                    <StyledBoardCreateDateWrapper width={rest.dateWidth}> {makeCreateDate(createDate)} </StyledBoardCreateDateWrapper>
+                    <StyledBoardViewWrapper width={rest.viewWidth}> {view} </StyledBoardViewWrapper>
+                    <StyledBoardGoodWrapper width={rest.goodWidth}> {good} </StyledBoardGoodWrapper>
+                </StyledBoardMenu>
+            }
+            
         </StyledBoardBar>
     );
 }

@@ -20,7 +20,7 @@ export const StyledBoardBody = styled.div`
     flex-direction: column;
     align-items: center;
     width: 55rem;
-    height: 50rem;
+    height: 30rem;
     border: 1px solid white;
 `
 

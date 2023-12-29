@@ -37,7 +37,7 @@ export const boardState = atom({
     key: 'boardState',
     default: [
         {
-            num: 0,
+            num: 12345,
             title: '게시판 이용 수칙',
             createDate: new Date(2023,11,25,4,40,11),
             creator: '관리자',
@@ -45,7 +45,7 @@ export const boardState = atom({
             good: 0,
         },
         {
-            num: 1,
+            num: 4558332,
             title: '공지사항',
             createDate: new Date(2023,11,25,4,38,12),
             creator: '관리자',
@@ -53,7 +53,7 @@ export const boardState = atom({
             good: 0,
         },
         {
-            num: 2,
+            num: 2147483647,
             title: '안녕하세요',
             createDate: new Date(2023,11,25,4,35,0),
             creator: '관리자',
