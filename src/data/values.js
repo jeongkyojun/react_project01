@@ -14,18 +14,23 @@ export const listState = atom({
     key: 'listState',
     default: [
         {
+            id: 'coding',
             text: '코딩하기',
             isEnd: false,
         },{
+            id: 'morning',
             text: '아침',
-            isEnd: false,
+            isEnd: true,
         },{
+            id: 'afternoon',
             text: '점심',
             isEnd: false,
         },{
+            id: 'evening',
             text: '저녁',
             isEnd: false,
         },{
+            id: 'exercise',
             text: '운동하기',
             isEnd: false,
         }

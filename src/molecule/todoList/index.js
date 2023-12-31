@@ -10,9 +10,9 @@ const TodoList = ({lists,year,month,date,width,height,checkBoxWidth,onChangeHand
                 {year+'년 '+month+'월 '+date+'일'}
             </StyledTodoListHead>
             {
-                lists?.map(({text,isEnd})=>{
+                lists?.map(({id,text,isEnd})=>{
                     return(
-                        <CheckboxLabel width={checkBoxWidth} labelValue={text} isEnd={isEnd} onChangeHandler={onChangeHandler}></CheckboxLabel>
+                        <CheckboxLabel id={id} width={checkBoxWidth} labelValue={text} isEnd={isEnd} onChangeHandler={onChangeHandler}></CheckboxLabel>
                     )
                 })
             }

@@ -28,7 +28,7 @@ export const getBtnInfos = (navigate) =>{
         {
             src: './setting',
             alt: 'settingPage',
-            onClickHandler: ()=>movePage('./setting'),
+            onClickHandler: ()=>movePage('./start'),
             children: '세팅',
             borderColor: 'white',
         },

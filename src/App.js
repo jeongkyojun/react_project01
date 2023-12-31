@@ -13,6 +13,7 @@ import Start from './page/Start';
 import CalandarPage from './page/CalandarPage';
 import Navbar from './organ/Navbar';
 import BoardPage from './page/BoardPage';
+import BoardDetailPage from './page/BoardDetailPage';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/start" element={<Start></Start>}></Route>
             <Route path="/calandar" element={<CalandarPage></CalandarPage>}></Route>
             <Route path="/board" element={<BoardPage></BoardPage>}></Route>
+            <Route path="/board/:boardId" element={<BoardDetailPage></BoardDetailPage>}></Route>
           </Routes>
         </BrowserRouter>
       </RecoilRoot>

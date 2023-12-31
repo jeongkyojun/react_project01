@@ -5,17 +5,22 @@ import { useRecoilState } from "recoil";
 import { boardState, nameState } from "../../data/values";
 import BoardList from "../../organ/BoardList";
 import PageBar from "../../molecule/PageBar";
+import navigator from "../../data/navigation";
+import { useNavigate } from "react-router-dom";
 
 const BoardPage = ()=>{
     const [name, setName] = useRecoilState(nameState);
     const [list, setList] = useRecoilState(boardState);
     const [num, setNum] = useState(-1);
     const [page, setPage] = useState(1);
+    const navigate = useNavigate();
+
     const MAX_PAGE = 10;
 
     const boardClickHandler = (e)=>{
         console.log(e.target.parentElement.id);
         setNum(e.target.parentElement.id);
+        navigator(navigate,{ state: { postId : e.target.parentElement.id}}).boardDetail();
     }
 
     const pageClickHandler = (e)=>{
