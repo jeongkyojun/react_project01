@@ -20,7 +20,6 @@ export const StyledButton = styled.button`
             ${disabled
             ? 'filter: brightness(80%)'
             : `
-            // 모바일 환경이 아닐 때에만 hover 사용
             @media(hover: hover) and (pointer: fine) {
                 &:hover {
                 filter: brightness(80%);

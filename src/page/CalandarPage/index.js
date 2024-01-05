@@ -17,7 +17,7 @@ const CalanadarPage = ()=>{
     const [date,setDate] = useState(DATE);
     const [firstDay,setFirstDay] = useState(FIRST_DAY);
     const [lastDay,setLastDay] = useState(LAST_DAY);
-    const [list] = useRecoilState(listState);
+    const [list,setList] = useRecoilState(listState);
 
     const addYear = ()=>{
         setYear((prev)=>{ return (prev+1);})};
@@ -65,7 +65,19 @@ const CalanadarPage = ()=>{
         setSelMonth(month);
     }
     const onCheckBoxHandler = (e)=>{
-        console.log(e.target);
+        setList((prev)=>{
+            let item = [];
+            console.log(prev);
+            prev.map(({id,text,isEnd})=>{
+                if(id===e.target.id)
+                {
+                    item.push({id:id,text:text,isEnd:!isEnd});
+                }  
+                else
+                    item.push({id:id,text:text,isEnd:isEnd});
+            })
+            return item;
+        });
     }
 
     return(

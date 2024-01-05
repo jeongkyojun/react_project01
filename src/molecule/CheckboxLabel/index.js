@@ -5,6 +5,7 @@ import Label from "../../atom/Label";
 
 const CheckboxLabel = ({
     id,
+    isEnd,
     inputFontSize,
     inputTextColor,
     inputBackgroundColor,
@@ -13,6 +14,7 @@ const CheckboxLabel = ({
     labelValue,
     labelColor,
     labelFontSize,
+    onclickHandler,
     ...inputPropsRest})=>{
     return (
         <StyledCheckboxLabel>
@@ -22,9 +24,11 @@ const CheckboxLabel = ({
                     onChangeHandler={inputchangeHandler}
                     onKeyDownHandler={inputKeydownHandler}
                     type={'checkbox'}
+                    checked={isEnd}
                     fontSize={inputFontSize}
                     textColor={inputTextColor}
                     backgroundColor={inputBackgroundColor}
+                    onClickHandler={onclickHandler}
                     {...inputPropsRest}
                 />
             </StyledCheckboxWrap>
