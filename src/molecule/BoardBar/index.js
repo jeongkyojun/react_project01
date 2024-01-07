@@ -11,7 +11,7 @@ import {
     StyledEmptyBoardWrapper
 } from "./style";
 
-const BoardBar = ({num, title, creator,createDate,view,good, onClickHandler,isEmpty, ...rest})=>{
+const BoardBar = ({number,num, title, creator,createDate,view,good, onClickHandler,isEmpty, ...rest})=>{
 
     const makeCreateDate = (date) =>{
         const time = new Date();
@@ -32,7 +32,7 @@ const BoardBar = ({num, title, creator,createDate,view,good, onClickHandler,isEm
                 isEmpty?
                 <StyledEmptyBoardWrapper> 게시글이 없습니다. </StyledEmptyBoardWrapper>
                 :
-                <StyledBoardMenu id={num}>
+                <StyledBoardMenu id={number}>
                     <StyledBoardNumWrapper width={rest.numWidth}> {num%100000} </StyledBoardNumWrapper>
                     <StyledBoardTitleWrapper width={rest.titleWidth} > {title} </StyledBoardTitleWrapper>
                     <StyledBoardCreatorWrapper width={rest.creatorWidth}> {creator} </StyledBoardCreatorWrapper>

@@ -48,7 +48,7 @@ const BoardList = ({list,...rest})=>{
                     list.map(({...listRest},index)=>{
                         return (
                             <BoardBar 
-                            num={index}
+                            number={index}
                             {...rest} 
                             {...listRest} 
                             numWidth={DEFAULT_WIDTH[0]}
@@ -56,7 +56,8 @@ const BoardList = ({list,...rest})=>{
                             creatorWidth={DEFAULT_WIDTH[2]}
                             dateWidth={DEFAULT_WIDTH[3]}
                             viewWidth={DEFAULT_WIDTH[4]}
-                            goodWidth={DEFAULT_WIDTH[5]}></BoardBar>
+                            goodWidth={DEFAULT_WIDTH[5]}>
+                            </BoardBar>
                         );
                     })
                 }

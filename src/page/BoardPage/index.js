@@ -18,9 +18,10 @@ const BoardPage = ()=>{
     const MAX_PAGE = 10;
 
     const boardClickHandler = (e)=>{
-        console.log(e.target.parentElement.id);
+        // e.target.parentElement.id를 index로 설정, 백엔드 연동시 다시 list의 고유 number로 바꾸고 api 호출로 변경할 것
+        console.log(list[e.target.parentElement.id]);
         setNum(e.target.parentElement.id);
-        navigator(navigate,{ state: { postId : e.target.parentElement.id}}).boardDetail();
+        navigator(navigate,{ state: list[e.target.parentElement.id]}).boardDetail();
     }
 
     const pageClickHandler = (e)=>{
@@ -35,11 +36,7 @@ const BoardPage = ()=>{
                 <Navbar isRow></Navbar>
             </StyledBoardHead>
             <StyledBoardBody>
-                {
-                    num===-1?
-                        <h2> select board</h2>:
-                        <h2> select board num : {num}</h2>
-                }
+                <h2>게시판</h2>
                 <BoardList list={list} boardSize={10} onClickHandler={boardClickHandler}></BoardList>
                 <PageBar page={page} maxpage={MAX_PAGE} onClickHandler={pageClickHandler}></PageBar>
             </StyledBoardBody>
